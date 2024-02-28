@@ -1,0 +1,96 @@
+---
+title: "bacmethy"
+author: "Liu Jihong"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## Figure 1 Simulated Sequencing Signal for Different Bases
+
+```{r pressure, echo=FALSE}
+
+set.seed(123)
+time_length <- 200 
+bases <- c("A", "T", "C", "G")
+
+signal_data <- data.frame(
+  Time = 1:time_length,
+  Signal = runif(time_length, min = 0, max = 100),  
+  Base = sample(bases, time_length, replace = TRUE)  
+)
+
+signal_data$AdjustedSignal <- with(signal_data, {
+  ifelse(Base == "A", Signal * runif(1, 0.8, 1.2),
+         ifelse(Base == "T", Signal * runif(1, 0.8, 1.2),
+                ifelse(Base == "C", Signal * runif(1, 1.5, 2.0),  
+                       Signal * runif(1, 0.8, 1.2))))  
+})
+  
+ 
+  library(ggplot2)
+  p<-ggplot(signal_data, aes(x = Time, y = AdjustedSignal, color = Base)) +
+    geom_line() +  
+    scale_color_manual(values = c("A" = "green", "T" = "red", "C" = "blue", "G" = "yellow")) +
+    labs(title = "Simulated Sequencing Signal for Different Bases",
+         x = "Time (arbitrary units)", y = "Signal Strength") +
+    theme_minimal()
+  ggsave("Simulated Sequencing Signals.eps", p, width = 16, height = 9, device = 'eps')
+  ggsave("Simulated Sequencing Signals.pdf", p, width = 16, height = 9)
+  
+  
+```
+
+## figure 1 heatmap
+
+```{r}
+library(pheatmap) 
+library(vegan)
+nafamily<-read.table("../data/nofamily.txt",sep = "\t",header = F)
+colnames(nafamily)<-c("locus tag","name","product","TBCF","TBCF ΔCP")
+nafamily<-nafamily[-1,]
+rownames(nafamily)<-nafamily$name
+data<-as.data.frame(lapply(nafamily[,c(4,5)], as.numeric))
+data.2<-log(data)
+rownames(data.2)<-rownames(nafamily)
+pheatmap(data.2,border=F)
+data.t<-t(data.2)
+pheatmap(data.t)
+
+postscript("heatmap.eps", width = 6, height = 6, horizontal = FALSE, onefile = FALSE)
+
+# 绘制热图
+pheatmap(mat)
+
+# 关闭设备
+dev.off()
+```
+
+## figure 1 scatter plot
+
+```{r}
+data <- read.csv("/Users/jihong/Documents/MED_PG/lab/02_methylation/12_pipeline/19_briefinginbioinformatics/24_iMeta_review/source data/Figure-1/Ecolim6A.csv")
+
+# 绘制图形，并自定义设置
+ggplot(data, aes(x=Coverage, y=IdentificationQv, color=Fraction)) +
+  geom_point() +  # 使用实心点
+  geom_hline(yintercept=40, linetype="dashed", color="red") +  # 添加y=40的红色虚线
+  scale_color_gradient(low="#BE8693", high="#9dafc4") +  # 设置颜色渐变
+  labs(title="E. coli K12\nm6A", x="Coverage", y="IdentificationQv") +  # 设置标题和坐标轴标签
+  theme_minimal() +  # 使用简洁主题
+  theme(
+    plot.title = element_text(hjust = 0.5, face="bold", size=16),  # 标题居中、加粗、设置字号和字体
+    axis.title = element_text(size=14),  # 坐标轴标题字号和字体
+    axis.text = element_text(size=12),   # 坐标轴刻度标签字号和字体
+    legend.position="none",  # 不显示图例
+    axis.line = element_line(colour = "black"),  # 增加坐标轴的线
+    axis.ticks = element_line(colour = "black")  # 增加坐标轴的刻度线
+  )
+
+# 保存图形为PDF格式，更换字体避免错误
+ggsave("Ecoli_K12_m6A_plot.pdf", width=8, height=6)
+
+ggsave("Ecoli_K12_m6A_plot.eps", device = "eps", width=8, height=6)
+ggsave("Ecoli_K12_m6A_plot.ems", device = "ems", width=8, height=6)
+
+```
+

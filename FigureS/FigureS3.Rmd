@@ -1,0 +1,72 @@
+---
+title: "Figure S3. The distribution of methylation fraction and sequencing quality."
+author: "Liu Jihong"
+date: '`r Sys.Date()`'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Clean workspace
+rm(list=ls()) 
+# Set output directory
+output_dir="./"
+```
+
+## donut plot
+
+(A) The distribution of methylation fraction per motif in the bacterial stains, where the title of each circle includes the strain name and recognition motif, and the counts indicate the number of motifs with diverse ratios of 0-60% (red), 60-75% (grey), 75-90% (blue), and 90-100% (green). The scatter plots for the quality distribution of methylated and un(der)methylated motifs across the strains per MTase motif 
+
+```{r}
+
+```
+
+
+(B) for the five strains (For Xanthobacter sp. 91 and Clostridioides mangenotii LM2, only the orphan MTases were show). The x-axis shows the reads coverage, and the y-axis shows the identification QV. The methylation fraction is represented by dot color, with blue indicating a high methylation fraction and red indicating a low fraction.
+
+```{r}
+
+file_path <- "../data/Figure-S3B.xlsx" 
+sheets <- getSheetNames(file_path)
+
+plot_list <- list()
+s_titles <- c("P. aeruginosa LYSZa2","P. aeruginosa LYSZa7","P. aeruginosa LYSZa7","S. aureus USA300","S. aureus USA300","C. mangenotii LM2","Xanthobacter. 91")
+
+
+i=1
+for (sheet in sheets) {
+ 
+  data <- read.xlsx(file_path, sheet = sheet)
+  
+  p <- ggplot(data, aes(x=Coverage, y=IdentificationQv, color=Fraction)) +
+    geom_point() +  
+    geom_hline(yintercept=40, linetype="dashed", color="red") +  
+    scale_color_gradient(low="#BE8693", high="#9dafc4") +
+    labs(title=paste(s_titles[i],"\n", sheet), x="Coverage", y="IdentificationQv") + 
+    theme_minimal() +  
+    theme(
+      plot.title = element_text(hjust = 0.5, size=16), 
+      axis.title = element_text(size=14),  
+      axis.text = element_text(size=12),   
+      legend.position="none",  
+      axis.line = element_line(colour = "black"), 
+      axis.ticks = element_line(colour = "black")  
+    )
+  
+ 
+  plot_list[[length(plot_list) + 1]] <- p
+  i=i+1
+}
+
+
+if (length(plot_list) > 0) {
+ 
+  grid_layout <- do.call(grid.arrange, c(plot_list, ncol = 4))
+  
+  ggsave("plots_layout.pdf", grid_layout, width = 16, height = 9)
+  
+  ggsave("plots_layout.eps", grid_layout, width = 16, height = 9, device = 'eps')
+}
+
+```
+

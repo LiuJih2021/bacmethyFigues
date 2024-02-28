@@ -1,0 +1,132 @@
+---
+title: "Figure 4. Function enrichment results of methylated genes in P.aeruginosa strains."
+author: "Liu Jihong"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Clean workspace
+rm(list=ls()) 
+# Set output directory
+output_dir="./"
+```
+
+## Function Enrichment
+Methylated genes refer to genes with corresponding DNA methylation modification in transcriptional regulatory regions. The most enriched functional terms of genes associated with: (a) the TRGANNNNNNTGC motif sites in TBCF; 
+
+```{r}
+table<-read.table("../data/GCANNNNNNTCYA_TRGANNNNNNTGC_RR_fun-4.txt",header = T, sep = "\t")
+GoFunctionTerms <-table
+## numbers as data on x axis
+
+GoFunctionTerms$number <- factor(rev(1:nrow(GoFunctionTerms)))
+GO_term_order=factor(as.integer(GoFunctionTerms$number),labels=GoFunctionTerms$Pathway)
+
+CPCOLS <- c("#8DA1CB", "#FD8D62", "#66C3A5","#cc6666")
+p_GoFunctionTerms <-GoFunctionTerms
+library(ggplot2)
+p1 <- ggplot(data=p_GoFunctionTerms, aes(x=GO_term_order, y=Count, fill=Category)) +
+  geom_bar(stat="identity", width=0.8) + coord_flip() + 
+  scale_fill_manual(values = CPCOLS) + theme_test() +
+  xlab("Pathways") + 
+  theme(axis.text=element_text(face = "bold", color="gray50",size = 17)) +
+  theme(title = element_text(size = 17))+
+  theme(legend.text = element_text(size = 17))+
+  labs(title = "The Most Enriched Function Terms")
+ggsave("TBCF-TRGA.eps", device = "eps", width=20, height=20)
+ggsave("TBCF-TRGA.pdf", width=20, height=20)
+
+
+
+
+```
+
+(b) the RCCANNNNNNNTGAR motif sites in TBCF;
+```{r}
+
+table<-read.table("../data/RCCANNNNNNNTGAR_YTCANNNNNNNTGGY_RR.fun-4.txt",header = T, sep = "\t")
+GoFunctionTerms <-table
+## numbers as data on x axis
+
+GoFunctionTerms$number <- factor(rev(1:nrow(GoFunctionTerms)))
+GO_term_order=factor(as.integer(GoFunctionTerms$number),labels=GoFunctionTerms$Pathway)
+
+CPCOLS <- c("#FD8D62", "#66C3A5","#cc6666")
+library(ggplot2)
+p2 <- ggplot(data=GoFunctionTerms, aes(x=GO_term_order, y=Count, fill=Category)) +
+  geom_bar(stat="identity", width=0.8) + coord_flip() + 
+  scale_fill_manual(values = CPCOLS) + theme_test() +
+  xlab("Pathways") + 
+  theme(axis.text=element_text(face = "bold", color="gray50",size = 17)) +
+  theme(title = element_text(size = 17))+
+  theme(legend.text = element_text(size = 17))+
+  labs(title = "The Most Enriched Function Terms")
+
+p2
+ggsave("TBCF-RCCA.eps", device = "eps", width=20, height=20)
+ggsave("TBCF-RCCA.pdf", width=20, height=20)
+
+```
+
+ (c) the CCCGAG motif sites in LYSZa7; 
+ 
+
+```{r}
+
+table<-read.table("../data/CCCGAG.RR.fun-4.txt",header = T, sep = "\t")
+GoFunctionTerms <-table
+GoFunctionTerms<-GoFunctionTerms[-10,]
+## numbers as data on x axis
+
+GoFunctionTerms$number <- factor(rev(1:nrow(GoFunctionTerms)))
+GO_term_order=factor(as.integer(GoFunctionTerms$number),labels=GoFunctionTerms$Pathway)
+
+CPCOLS <- c("#8DA1CB","#FD8D62", "#66C3A5","#cc6666")
+library(ggplot2)
+p4 <- ggplot(data=GoFunctionTerms, aes(x=GO_term_order, y=Count, fill=Category)) +
+  geom_bar(stat="identity", width=0.8) + coord_flip() + 
+  scale_fill_manual(values = CPCOLS) + theme_test() +
+  xlab("Pathways") + 
+  theme(axis.text=element_text(face = "bold", color="gray50",size = 17)) +
+  theme(title = element_text(size = 17))+
+  theme(legend.text = element_text(size = 17))+
+  labs(title = "The Most Enriched Function Terms")
+
+p4
+ggsave("LYSZa7-CCCGAG.eps", device = "eps", width=20, height=20)
+ggsave("LYSZa7-CCCGAG.pdf", width=20, height=20)
+
+```
+ 
+ 
+ (d) the AGGNNNNNRTGT motif sites in LYSZa7. 
+```{r}
+table<-read.table("../data/ACAYNNNNNCCT_AGGNNNNNRTGT_RR.fun-4.txt",header = T, sep = "\t")
+GoFunctionTerms <-table
+## numbers as data on x axis
+
+GoFunctionTerms$number <- factor(rev(1:nrow(GoFunctionTerms)))
+GO_term_order=factor(as.integer(GoFunctionTerms$number),labels=GoFunctionTerms$Pathway)
+
+CPCOLS <- c("#8DA1CB", "#FD8D62", "#66C3A5","#cc6666")
+p_GoFunctionTerms <-GoFunctionTerms
+library(ggplot2)
+p3 <- ggplot(data=p_GoFunctionTerms, aes(x=GO_term_order, y=Count, fill=Category)) +
+  geom_bar(stat="identity", width=0.8) + coord_flip() + 
+  scale_fill_manual(values = CPCOLS) + theme_test() +
+  xlab("Pathways") + 
+  theme(axis.text=element_text(face = "bold", color="gray50",size = 17)) +
+  theme(title = element_text(size = 17))+
+  theme(legend.text = element_text(size = 17))+
+  labs(title = "The Most Enriched Function Terms")
+
+p3
+ggsave("LYSZa7-ACAY.eps", device = "eps", width=20, height=20)
+ggsave("LYSZa7-ACAY.pdf", width=20, height=20)
+
+```
+
+
+

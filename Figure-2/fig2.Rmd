@@ -1,0 +1,104 @@
+---
+title: "Figure 2. The distribution of metylation fraction and sequencing quality."
+author: "Liu Jihong"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Clean workspace
+rm(list=ls()) 
+# Set output directory
+output_dir="./"
+```
+
+## A donut plot
+
+(A) The distribution of methylation fraction per motif in the bacterial stains, where the title of each circle includes the strain name and recognition motif, and the counts indicate the number of motifs with diverse ratios of 0-60% (red), 60-75% (grey), 75-90% (blue), and 90-100% (green). The scatter plots for the quality distribution of methylated and un(der)methylated motifs across the strains per MTase motif 
+
+```{r}
+library(ggplot2)
+library(ggthemes)
+library(reshape2)
+library(aplot)
+library(patchwork)
+library(ggpie)
+library(ggpubr)
+#figure 2 the methylated-reads ratio
+data<-read.table("../data/Figure2A.txt",header = T, sep = "\t")
+mydata <- data[,-1]
+
+colnames(mydata) <-c("Motif","0-60%","60-75%","75-90%","90-100%")
+mydata$Motif<-factor(mydata$Motif,levels = mydata$Motif)
+mdata<-melt(mydata,id.vars = "Motif",variable.name = "Fraction", value.name = "Count")
+
+mdata<-melt(mydata[1,],id.vars = "Motif",variable.name = "Fraction", value.name = "Count")
+p1 <- ggdonutchart(mdata,"Count",label = "Count", lab.pos = "out",fill = "Fraction",color = "white",palette = c("#be8693","#cdcbcd","#9dafc4","#cdd8d4"))
+p1
+mdata<-melt(mydata[2,],id.vars = "Motif",variable.name = "Percent", value.name = "Count")
+p2 <- ggdonutchart(mdata,"Count",label = "Count", lab.pos = "out",fill = "Percent",color = "white",palette = c("#be8693","#cdcbcd","#9dafc4","#cdd8d4"))
+p2
+mdata<-melt(mydata[3,],id.vars = "Motif",variable.name = "Percent", value.name = "Count")
+p3 <- ggdonutchart(mdata,"Count",label = "Count", lab.pos = "out",fill = "Percent",color = "white",palette = c("#be8693","#cdcbcd","#9dafc4","#cdd8d4"))
+p3
+mdata<-melt(mydata[4,],id.vars = "Motif",variable.name = "Percent", value.name = "Count")
+p4 <- ggdonutchart(mdata,"Count",label = "Count", lab.pos = "out",fill = "Percent",color = "white",palette = c("#be8693","#cdcbcd","#9dafc4","#cdd8d4"))
+p4
+mdata<-melt(mydata[5,],id.vars = "Motif",variable.name = "Percent", value.name = "Count")
+p5 <- ggdonutchart(mdata,"Count",label = "Count", lab.pos = "out",fill = "Percent",color = "white",palette = c("#be8693","#cdcbcd","#9dafc4","#cdd8d4"))
+p5
+mdata<-melt(mydata[6,],id.vars = "Motif",variable.name = "Percent", value.name = "Count")
+p6 <- ggdonutchart(mdata,"Count",label = "Count", lab.pos = "out",fill = "Percent",color = "white",palette = c("#be8693","#cdcbcd","#9dafc4","#cdd8d4"))
+p6
+
+```
+
+## B scatter plot
+ (B) (6 MTase motifs for P.aeruginosa TBCF and E.coli K12). The x-axis shows the reads coverage, and the y-axis shows the identification QV. The methylation fraction is represented by dot color, with blue indicating a high methylation fraction and red indicating a low fraction.
+
+```{r}
+# 加载所需的库
+library(ggplot2)
+library(openxlsx)
+library(gridExtra)
+
+
+file_path <- "../data/Figure-2B.xlsx" 
+sheets <- getSheetNames(file_path)
+
+plot_list <- list()
+s_titles <- c("P. aeruginosa TBCF","P. aeruginosa TBCF","E. coli K12","E. coli K12","E. coli K12","E. coli K12")
+
+i=1
+for (sheet in sheets) {
+ 
+  data <- read.xlsx(file_path, sheet = sheet)
+ 
+  p <- ggplot(data, aes(x=Coverage, y=IdentificationQv, color=Fraction)) +
+    geom_point() +  
+    geom_hline(yintercept=40, linetype="dashed", color="red") +  
+    scale_color_gradient(low="#BE8693", high="#9dafc4") +  
+    labs(title=paste(s_titles[i],"\n", sheet), x="Coverage", y="IdentificationQv") +  
+    theme_minimal() +  
+    theme(
+      plot.title = element_text(hjust = 0.5, size=16),  
+      axis.title = element_text(size=14), 
+      axis.text = element_text(size=12),   
+      legend.position="none", 
+      axis.line = element_line(colour = "black"),  
+      axis.ticks = element_line(colour = "black")  
+    )
+  
+ 
+  plot_list[[length(plot_list) + 1]] <- p
+  i=i+1
+}
+
+if (length(plot_list) > 0) {
+  
+  grid_layout <- do.call(grid.arrange, c(plot_list, ncol = 3))
+  ggsave("plots_layout.pdf", grid_layout, width = 16, height = 9)
+ 
+}
+```

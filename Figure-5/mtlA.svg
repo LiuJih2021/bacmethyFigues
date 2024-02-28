@@ -1,0 +1,37 @@
+<svg width="1000" height="110" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="112" width="1002" y="-1" x="-1"/>
+ </g>
+
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_1" fill="#ffffff" height="110" width="1000" y="-1" x="2"/>
+  <text font-style="italic" font-family="Arial"  font-weight="bold" id="svg_3" fill="#000000" font-size="12" y="17" x="9">K12 Genome</text>
+  <line id="svg_4" stroke="#000000" stroke-width="1px" y2="29" x2="252.28264" y1="29" x1="66"/>
+  <polygon id="svg_5" fill="#b07181" stroke="#b07181" points="139.44447326660156,39 141.44447326660156,29 143.44447326660156,39 "/>
+  <rect id="svg_15" fill="#9ed1bb" height="6" width="7.82387" y="26" x="191.92706"/>
+  <polygon id="svg_16" fill="#bfbdc0" points="252.2826385498047,24 950,24 965,29 950,34 252.2826385498047,34 "/>
+  <text id="svg_17" fill="#000000"  font-family="Arial" font-size="10" y="44" x="53">5'</text>
+  <text id="svg_18" fill="#000000"  font-family="Arial" font-size="10" y="44" x="970">3'</text>
+  <line id="svg_19" stroke="#000000" y2="49" x2="965" y1="49" x1="66"/>
+  <line id="svg_20" stroke="#000000" y2="44" x2="66" y1="49" x1="66"/>
+  <text id="svg_21" fill="#000000"  font-family="Arial" font-size="10" y="61" x="46">3771781bp</text>
+  <line id="svg_22" stroke="#000000" y2="44" x2="252.28264" y1="49" x1="252.28264"/>
+  <text id="svg_23" fill="#000000" font-family="Arial"  font-size="10" y="61" x="232.28264">3772281bp</text>
+  <line id="svg_24" stroke="#000000" y2="44" x2="438.56527" y1="49" x1="438.56527"/>
+  <text id="svg_25" fill="#000000" font-family="Arial"  font-size="10" y="61" x="418.56527">3772781bp</text>
+  <line id="svg_26" stroke="#000000" y2="44" x2="624.84791" y1="49" x1="624.84791"/>
+  <text id="svg_27" fill="#000000"  font-family="Arial" font-size="10" y="61" x="604.84791">3773281bp</text>
+  <line id="svg_28" stroke="#000000" y2="44" x2="811.13054" y1="49" x1="811.13054"/>
+  <text id="svg_29" fill="#000000" font-family="Arial"  font-size="10" y="61" x="791.13054">3773781bp</text>
+  <text id="svg_30" fill="#000000"  font-family="Arial" font-size="15" y="84" x="15">Legend:</text>
+  <polygon id="svg_31" fill="#bfbdc0" points="31,91 36,91 51,96 36,101 31,101 "/>
+  <text id="svg_32" fill="#000000"  font-family="Arial" font-size="12" y="101" x="56">mtlA</text>
+  <rect id="svg_35" fill="#9ed1bb" height="10" width="20" y="92" x="162"/>
+  <text id="svg_36" fill="#000000"  font-family="Arial" font-size="12" y="102" x="187">Crp</text>
+  <polygon id="svg_37" fill="#b07181" stroke="#b07181" points="99,101 101,91 103,101 "/>
+  <text id="svg_38" fill="#000000"  font-family="Arial" font-size="12" y="102" x="110">G<tspan fill="red" id="svg_74">A</tspan>TC</text>
+  <text font-style="italic" font-weight="bold" stroke="null" xml:space="preserve" text-anchor="start"  font-family="Arial"  font-size="15" id="svg_2" y="15.5" x="554" fill-opacity="null" stroke-opacity="null" stroke-width="null" fill="#000000">mtlA</text>
+ </g>
+</svg>

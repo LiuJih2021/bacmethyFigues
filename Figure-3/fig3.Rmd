@@ -1,0 +1,80 @@
+---
+title: Figure 3. Number of methylated sites located at the Regulation Region for each
+  MTase recognition motif in differenct strains.
+author: "Liu Jihong"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Clean workspace
+rm(list=ls()) 
+# Set output directory
+output_dir="./"
+```
+
+## line plot of motif
+The vertical axis shows the count of methylated (Blue), unmethylated (Red), or undermethylated (Green) sites. The horizontal axis indicates the position of modification sites located around the ATG initiation codon. 
+```{r}
+library(ggplot2)
+library(reshape2)
+library(readr)
+  
+  # Read the data, make sure that positions are read correctly
+  data <- read_csv("../data/Figure3.csv")  # Replace with your file path
+  
+  # Check the structure of the data to ensure 'Position' is numeric and contains the correct values
+  str(data)
+  
+  
+  # If the above doesn't apply, but just to ensure negatives are handled correctly:
+  # Convert position columns from character to numeric (if they are not already)
+  # This is just an example; adjust according to how your data columns are named or structured
+  for (colname in names(data)[4:ncol(data)]) {  # Assuming first three columns are not numeric data
+    data[[colname]] <- as.numeric(as.character(data[[colname]]))
+  }
+  
+  # Continue with your data processing and plotting...
+  
+  # Melt the data for ggplot
+  data_melted <- melt(data, id.vars = c("species", "Motif", "level"), variable.name = "Position", value.name = "Data")
+  
+  # Assuming data_melted is already prepared as before
+  # Convert Position back to numeric if it was factor or character
+  data_melted$Position <- as.numeric(gsub("X\\.", "", data_melted$Position))
+  
+  # Unique motifs for looping
+  unique_motifs <- unique(data_melted$Motif)
+  # Define your custom colors
+  my_colors <- c("methylation" = "blue", "undermethylation" = "green", "unmethylation" = "red")
+  
+  # Loop through each unique motif and create a plot with custom colors
+  for (motif in unique_motifs) {
+    # Subset data for the current motif
+    subset_data <- data_melted[data_melted$Motif == motif,]
+    
+    # Create the plot with custom colors
+    p <- ggplot(subset_data, aes(x = Position, y = Data, colour = level, group = level)) +
+      geom_line() +
+      scale_color_manual(values = my_colors) +  # Apply custom colors
+      facet_wrap(~ species + Motif, scales = "free") +
+      labs(x =  "Relative Position", y = "Counts") +
+      theme_bw() +
+      theme(axis.text.x = element_text(angle = 90, hjust = 1),
+            strip.background = element_blank(),
+            strip.text.x = element_text(size = 14),
+            legend.title = element_blank(),
+            plot.title = element_text(hjust = 0.5),legend.position = "none")
+    
+    # Save the plot in EPS format
+    motif_clean <- gsub("[^A-Za-z0-9]+", "_", motif)  # Clean motif string to use in filename
+    file_name <- sprintf("plot_%s.eps", motif_clean)
+    ggsave(file_name, plot = p, device = "eps", width = 8, height = 8)
+    file_name <- sprintf("plot_%s.pdf", motif_clean)
+    ggsave(file_name, plot = p,  width = 8, height = 8)
+  }
+  
+
+```
+

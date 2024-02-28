@@ -1,0 +1,77 @@
+<svg width="1000" height="110" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="1002" height="112" id="canvas_background" fill="none"/>
+ </g>
+
+ <g class="layer">
+  <title>Layer 1</title>
+  <rect fill="#ffffff" height="108.999996" id="svg_1" width="998.999981" x="0.000046" y="1.999996" stroke="null"/>
+  <text fill="#000000" font-size="12" font-style="italic" font-weight="bold" id="svg_3" x="12" y="15">TBCF  Genome</text>
+  <line id="svg_4" stroke="#000000" stroke-width="3px" x1="136" x2="186.77" y1="39" y2="39"/>
+  <rect fill="#add8c8" height="13" id="svg_5" width="5" x="173.16" y="32.5"/>
+  <polygon fill="#cdcbcd" id="svg_6" points="186.7654571533203,32 389.7523498535156,32 404.7523498535156,39 389.7523498535156,46 186.7654571533203,46 "/>
+  <polygon fill="#ff6663" id="svg_7" points="191.70501708984375,59 192.70501708984375,47 193.70501708984375,59 " stroke="#be8693"/>
+  <rect fill="#9dafc4" height="13" id="svg_27" width="5" x="305.28" y="32.5"/>
+  <polygon fill="#be8693" id="svg_28" points="308.66864013671875,59 309.66864013671875,47 310.66864013671875,59 " stroke="#be8693"/>
+  <rect fill="#9dafc4" height="13" id="svg_38" width="5" x="349.82" y="32.5"/>
+  <rect fill="#add8c8" height="13" id="svg_39" width="5" x="371.04" y="32.5"/>
+  <rect fill="#9dafc4" height="13" id="svg_40" width="5" x="384.45" y="32.5"/>
+  <rect fill="#0a85ed" height="13" id="svg_41" width="1.62" x="399.17" y="32.5"/>
+  <rect fill="#9dafc4" height="13" id="svg_42" width="5" x="399.57" y="32.5"/>
+  <line id="svg_43" stroke="#000000" stroke-width="3px" x1="404.75" x2="409.12" y1="39" y2="39"/>
+  <polygon fill="#cdcbcd" id="svg_44" points="409.1181945800781,32 588.042236328125,32 603.042236328125,39 588.042236328125,46 409.1181945800781,46 "/>
+  <rect fill="#9dafc4" height="13" id="svg_45" width="5" x="483.54" y="32.5"/>
+  <rect fill="#add8c8" height="13" id="svg_46" width="5" x="514.51" y="32.5"/>
+  <rect fill="#9dafc4" height="13" id="svg_47" width="5" x="517.96" y="32.5"/>
+  <rect fill="#9dafc4" height="13" id="svg_48" width="5" x="524.36" y="32.5"/>
+  <polygon fill="#be8693" id="svg_49" points="544.017333984375,59 545.017333984375,47 546.017333984375,59 " stroke="#be8693"/>
+  <rect fill="#9dafc4" height="13" id="svg_59" width="5" x="556.34" y="32.5"/>
+  <polygon fill="#cdcbcd" id="svg_60" points="603.042236328125,32 718.6110229492188,32 733.6110229492188,39 718.6110229492188,46 603.042236328125,46 "/>
+  <rect fill="#9dafc4" height="13" id="svg_61" width="5" x="606.8" y="32.5"/>
+  <rect fill="#9dafc4" height="13" id="svg_62" width="5" x="632.79" y="32.5"/>
+  <polygon fill="#be8693" id="svg_63" points="650.5232543945312,59 651.5232543945312,47 652.5232543945312,59 " stroke="#be8693"/>
+  <polygon fill="#cdcbcd" id="svg_73" points="733.6110229492188,32 811.4102783203125,32 826.4102783203125,39 811.4102783203125,46 733.6110229492188,46 "/>
+  <polygon fill="#cdcbcd" id="svg_74" points="826.4102783203125,32 895.3763427734375,32 910.3763427734375,39 895.3763427734375,46 826.4102783203125,46 "/>
+  <line id="svg_75" stroke="#000000" stroke-width="3px" x1="910.38" x2="912.1" y1="39" y2="39"/>
+  <polygon fill="#cdcbcd" id="svg_76" points="912.1024169921875,32 951.52294921875,32 966.52294921875,39 951.52294921875,46 912.1024169921875,46 "/>
+  <text fill="#000000" font-size="10" id="svg_77" x="123" y="54">5'</text>
+  <text fill="#000000" font-size="10" id="svg_78" x="970" y="54">3'</text>
+  <line id="svg_79" stroke="#000000" x1="136" x2="965" y1="59" y2="59"/>
+  <line id="svg_80" stroke="#000000" x1="136" x2="136" y1="59" y2="54"/>
+  <text fill="#000000" font-size="10" font-weight="normal" id="svg_81" x="105" y="69">3757215 bp</text>
+  <line id="svg_82" stroke="#000000" x1="237.53" x2="237.53" y1="59" y2="54"/>
+  <text fill="#000000" font-size="10" font-weight="normal" id="svg_83" x="206.53" y="69">3758215 bp</text>
+  <line id="svg_84" stroke="#000000" x1="339.06" x2="339.06" y1="59" y2="54"/>
+  <text fill="#000000" font-size="10" font-weight="normal" id="svg_85" x="308.06" y="69">3759215 bp</text>
+  <line id="svg_86" stroke="#000000" x1="440.59" x2="440.59" y1="59" y2="54"/>
+  <text fill="#000000" font-size="10" font-weight="normal" id="svg_87" x="409.59" y="70">3760215 bp</text>
+  <line id="svg_88" stroke="#000000" x1="542.12" x2="542.12" y1="59" y2="54"/>
+  <text fill="#000000" font-size="10" font-weight="normal" id="svg_89" x="511.12" y="69">3761215 bp</text>
+  <line id="svg_90" stroke="#000000" x1="643.65" x2="643.65" y1="59" y2="54"/>
+  <text fill="#000000" font-size="10" font-weight="normal" id="svg_91" x="612.65" y="69">3762215 bp</text>
+  <line id="svg_92" stroke="#000000" x1="745.19" x2="745.19" y1="59" y2="54"/>
+  <text fill="#000000" font-size="10" font-weight="normal" id="svg_93" x="714.19" y="69">3763215 bp</text>
+  <line id="svg_94" stroke="#000000" x1="846.72" x2="846.72" y1="59" y2="54"/>
+  <text fill="#000000" font-size="10" font-weight="normal" id="svg_95" x="815.72" y="69">3764215 bp</text>
+  <line id="svg_96" stroke="#000000" x1="948.25" x2="948.25" y1="59" y2="54"/>
+  <text fill="#000000" font-size="10" font-weight="normal" id="svg_97" x="917.25" y="69">3765215 bp</text>
+  <text fill="#000000" font-size="15" id="svg_98" x="15" y="75">Legend:</text>
+  <polygon fill="#cdcbcd" id="svg_99" points="17,83 22,83 37,90 22,97 17,97 "/>
+  <text fill="#000000" font-size="12" id="svg_100" x="42" y="95">Gene</text>
+  <polygon fill="#be8693" id="svg_103" points="84,96 85,84 86,96 " stroke="#be8693"/>
+  <text fill="#000000" font-size="12" id="svg_104" x="94" y="96">TRG<tspan fill="red" id="svg_2">A</tspan>NNNNNN<tspan fill="red" id="svg_101">T</tspan>GC</text>
+  <rect fill="#add8c8" height="13" id="svg_105" width="20" x="222" y="84.5"/>
+  <text fill="#000000" font-size="12" id="svg_106" x="247" y="96">DNR</text>
+  <rect fill="#9dafc4" height="13" id="svg_107" width="20" x="285" y="84.5"/>
+  <text fill="#000000" font-size="12" id="svg_108" x="310" y="96">RpoN</text>
+  <text font-style="italic" font-weight="bold" fill="#000000" font-size="12" id="svg_8" x="271" y="30">R</text>
+  <text font-style="italic" font-weight="bold" fill="#000000" font-size="12" id="svg_9" x="490" y="30">Z</text>
+  <text font-style="italic" font-weight="bold" fill="#000000" font-size="12" id="svg_10" x="649" y="30">D</text>
+  <text font-style="italic" font-weight="bold" fill="#000000" font-size="12" id="svg_11" x="758" y="30">F</text>
+  <text font-style="italic" font-weight="bold" fill="#000000" font-size="12" id="svg_12" x="853" y="30">Y</text>
+  <text font-style="italic" font-weight="bold" fill="#000000" font-size="12" id="svg_13" x="926" y="30">L</text>
+  <text font-style="italic" font-weight="bold" fill="#000000" font-size="12" id="svg_14" x="541" y="11">nos</text>
+  <polygon fill="#be8693" id="svg_15" points="241.7046771645546,59 242.7046771645546,47 243.7046771645546,59 " stroke="#be8693"/>
+ </g>
+</svg>
