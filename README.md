@@ -1,4 +1,4 @@
-# bacmethyFigues
+# bacmethyFigures
 
 Scripts for figures in 
 “Bacmethy:  a novel and convenient tool for investigating bacterial DNA methylation pattern and their transcriptional regulation effects.”
