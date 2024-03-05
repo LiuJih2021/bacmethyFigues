@@ -58,7 +58,7 @@ p6
  (B) (6 MTase motifs for P.aeruginosa TBCF and E.coli K12). The x-axis shows the reads coverage, and the y-axis shows the identification QV. The methylation fraction is represented by dot color, with blue indicating a high methylation fraction and red indicating a low fraction.
 
 ```{r}
-# 加载所需的库
+
 library(ggplot2)
 library(openxlsx)
 library(gridExtra)
