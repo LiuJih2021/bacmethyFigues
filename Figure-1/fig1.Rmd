@@ -58,10 +58,10 @@ pheatmap(data.t)
 
 postscript("heatmap.eps", width = 6, height = 6, horizontal = FALSE, onefile = FALSE)
 
-# 绘制热图
+
 pheatmap(mat)
 
-# 关闭设备
+
 dev.off()
 ```
 
@@ -70,23 +70,22 @@ dev.off()
 ```{r}
 data <- read.csv("/Users/jihong/Documents/MED_PG/lab/02_methylation/12_pipeline/19_briefinginbioinformatics/24_iMeta_review/source data/Figure-1/Ecolim6A.csv")
 
-# 绘制图形，并自定义设置
 ggplot(data, aes(x=Coverage, y=IdentificationQv, color=Fraction)) +
-  geom_point() +  # 使用实心点
-  geom_hline(yintercept=40, linetype="dashed", color="red") +  # 添加y=40的红色虚线
-  scale_color_gradient(low="#BE8693", high="#9dafc4") +  # 设置颜色渐变
-  labs(title="E. coli K12\nm6A", x="Coverage", y="IdentificationQv") +  # 设置标题和坐标轴标签
-  theme_minimal() +  # 使用简洁主题
+  geom_point() +  
+  geom_hline(yintercept=40, linetype="dashed", color="red") +  
+  scale_color_gradient(low="#BE8693", high="#9dafc4") +  
+  labs(title="E. coli K12\nm6A", x="Coverage", y="IdentificationQv") +  
+  theme_minimal() +  
   theme(
-    plot.title = element_text(hjust = 0.5, face="bold", size=16),  # 标题居中、加粗、设置字号和字体
-    axis.title = element_text(size=14),  # 坐标轴标题字号和字体
-    axis.text = element_text(size=12),   # 坐标轴刻度标签字号和字体
-    legend.position="none",  # 不显示图例
-    axis.line = element_line(colour = "black"),  # 增加坐标轴的线
-    axis.ticks = element_line(colour = "black")  # 增加坐标轴的刻度线
+    plot.title = element_text(hjust = 0.5, face="bold", size=16),  
+    axis.title = element_text(size=14),  
+    axis.text = element_text(size=12),  
+    legend.position="none",  
+    axis.line = element_line(colour = "black"), 
+    axis.ticks = element_line(colour = "black") 
   )
 
-# 保存图形为PDF格式，更换字体避免错误
+
 ggsave("Ecoli_K12_m6A_plot.pdf", width=8, height=6)
 
 ggsave("Ecoli_K12_m6A_plot.eps", device = "eps", width=8, height=6)
